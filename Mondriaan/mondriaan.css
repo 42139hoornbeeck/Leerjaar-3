@@ -1,0 +1,29 @@
+
+    .red {
+        height: 100%;
+        background-color: red;
+    }
+
+    .white {
+        height: 100%;
+        background-color: white;
+    }
+
+    .black {
+        height: 100%;
+        background-color: black;
+    }
+
+    .blue {
+        height: 100%;
+        background-color: blue;
+    }
+
+    .yellow {
+        height: 100%;
+        background-color: yellow;
+    }
+
+    .gap-1 {
+        background-color: #313131;
+    }
