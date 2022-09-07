@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         Company::factory()->count(30)->create()->each(function($c){
-                Employee::factory()->count(100)->create(['company' => $c->id]);
+                Employee::factory()->count(100)->create(['company_id' => $c->id]);
             }
         );
     }

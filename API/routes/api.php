@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\CompanyController;
+use App\Http\Controllers\API\EmployeeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('/companies', CompanyController::class)->middleware('ForceJSONReponse');
+Route::apiResource('/companies', CompanyController::class)->middleware('ForceJSONReponse');
+
+Route::apiResource('/employee', EmployeeController::class)->middleware('ForceJSONReponse');
