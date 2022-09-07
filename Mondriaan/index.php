@@ -7,13 +7,14 @@
     <title>Mondriaan</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="mondriaan.css">
 
 </head>
 <body>
 
 
-<div class="grid gap-1 h-screen">
+<div class="animate__bounceIn grid gap-1 h-screen">
 
 <!-- Full width column -->
 <div class="flex flex-grow gap-1">
