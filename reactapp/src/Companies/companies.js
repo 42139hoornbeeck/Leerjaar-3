@@ -1,7 +1,9 @@
 import './companies.css'
-import { Table } from "antd";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Table } from "antd";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+
 
 function Companies() {
   const [dataSource, setDataSource] = useState([]);
@@ -21,7 +23,42 @@ function Companies() {
       title: "Name",
       dataIndex: "name",
     },
+    {
+        title: "Actions",
+        dataIndex: "id",
+        render: (id) => {
+          return (
+            <>
+            <EditOutlined
+                className={"editButton"}
+                onClick={() => {
+                    onEditCompany(id);
+                }}
+              /> 
+
+            <span className={"spanMargin"} ></span>
+
+            <DeleteOutlined
+                className={"deleteButton"}
+                onClick={() => {
+                    onDeleteCompany(id);
+                }}
+            />                     
+            </>
+          );
+        },
+    },
+    
   ];
+
+  const onEditCompany = (id) => {
+    console.log(id);
+  };
+
+  const onDeleteCompany = (id) => {
+    console.log(id);
+  };
+
 
   const fetchRecords = (page) => {
     setLoading(true);
@@ -43,7 +80,6 @@ function Companies() {
       }}
     >
       <Table
-        id={"customers"}
         loading={loading}
         columns={columns}
         dataSource={dataSource}
@@ -53,7 +89,7 @@ function Companies() {
             fetchRecords(page);
           },
         }}
-      ></Table>
+    ></Table>
     </div>
   );
 }

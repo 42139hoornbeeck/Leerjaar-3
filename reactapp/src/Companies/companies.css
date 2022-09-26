@@ -1,3 +1,67 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* @import 'antd/dist/antd.css'; */
+
+
+.ant-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.ant-pagination-item {
+    background-color: #F1F5F9;
+    color: #868FAA;
+    border-radius: 100%;
+    padding: 5px 12.5px;
+    cursor: pointer;
+}
+
+.ant-pagination-item-link {
+    color: #868FAA;
+}
+
+.ant-table {
+    margin: 20px 0 20px 0;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    min-width: 600px;
+    max-width: 600px;
+}
+
+th {
+    color: black;
+    text-align: start;
+}
+
+tr {
+    color: #868FAA;
+}
+
+td {
+    text-align: left;
+    padding-right: 40px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.editButton {
+    background-color: #F1F5F9;
+    color: #868FAA;
+    padding: 7.5px;
+    border-radius: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.deleteButton {
+    background-color: #F1F5F9;
+    color: #868FAA;
+    padding: 7.5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
