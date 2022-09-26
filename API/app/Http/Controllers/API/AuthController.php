@@ -21,17 +21,25 @@ class AuthController extends Controller
      */
     public function createUser(AuthRequest $request)
     {
-        $user = User::create([
-            'name' =>  $request->name,
-            'email' =>  $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $bestaandeemail = User::firstWhere('email', $request->email);
 
-        return response()->json([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password,
-        ]);
+        if(!$bestaandeemail){
+            $user = User::create([
+                'name' =>  $request->name,
+                'email' =>  $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+
+            return response()->json([
+                'message' => 'Register succes'
+            ]);
+
+        } else {
+            return response()->json([
+                'message' => 'Email already exists'
+            ]);
+        }
+
     }
 
 
@@ -40,22 +48,28 @@ class AuthController extends Controller
      * @param Request $request
      * @return User
      */
-    public function loginUser(AuthLoginRequest $request)
+    public function loginUser(Request $request)
     {
-
-        if (!Auth::attempt($request->only('email', 'password'))) {
-            return response()->json([
-                'message' => 'Invalid login details'
-            ], 401);
-        }
-
-        $user = User::where('email', $request->email)->firstOrFail();
-
-        $token = $user->createToken('auth_token')->plainTextToken;
-
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'Bearer',
+        
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
         ]);
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+
+            return response()->json($this->createToken($user, "token-" . $user->id . "-" . time()));
+        } else {
+            return abort(401, "Wrong credentials.");
+        }
     }
+
+    public function createToken(User $user, $token_name)
+    {
+        $token = $user->createToken($token_name);
+
+        return ["token" => $token->plainTextToken, "name" => $user->name];
+    }
+
 }

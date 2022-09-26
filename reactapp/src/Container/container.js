@@ -1,4 +1,3 @@
-import logo from '../logo.svg';
 import './container.css';
 import CardComponent from '../CardComponent/card';
 
@@ -6,7 +5,7 @@ import CardComponent from '../CardComponent/card';
 function Container() {
   return (
     <div className="flex flex-wrap justify-center p-10 gap-5">
-    <div class="grid grid-cols-4 gap-4 content-center">
+    <div className="grid grid-cols-4 gap-4 content-center">
         <CardComponent titel="hallo" />
         <CardComponent titel="doei" />
         <CardComponent titel="meneer" />
