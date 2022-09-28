@@ -29,8 +29,8 @@
     background-color: white;
     border-radius: 20px;
     padding: 20px;
-    min-width: 600px;
-    max-width: 600px;
+    min-width: 500px;
+    min-height: 400px;
 }
 
 th {
@@ -45,8 +45,8 @@ tr {
 td {
     text-align: left;
     padding-right: 40px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    /* text-overflow: ellipsis;
+    white-space: nowrap; */
 }
 
 .editButton {
