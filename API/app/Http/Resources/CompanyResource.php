@@ -20,7 +20,7 @@ class CompanyResource extends JsonResource
             'name' => $this->name,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'employees' => new EmployeeCollection($this->employees)
+            // 'employees' => new EmployeeCollection($this->employees)
         ];
     }
 }

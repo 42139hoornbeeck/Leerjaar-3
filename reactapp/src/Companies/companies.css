@@ -29,8 +29,6 @@
     background-color: white;
     border-radius: 20px;
     padding: 20px;
-    min-width: 500px;
-    min-height: 400px;
 }
 
 th {
@@ -65,3 +63,5 @@ td {
     border-radius: 5px;
     cursor: pointer;
 }
+
+

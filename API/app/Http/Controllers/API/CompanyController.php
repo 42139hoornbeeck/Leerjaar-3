@@ -7,6 +7,7 @@ use App\Http\Requests\CompanyStoreRequest;
 use App\Http\Resources\CompanyCollection;
 use App\Http\Resources\CompanyResource;
 use App\Models\Company;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -67,8 +68,13 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Company $company)
+    public function destroy($id)
     {
-        //
+        $employees = Employee::where('company_id', $id);
+        $employees->delete();
+
+        $company = Company::find($id);
+        $company->delete();
     }
+
 }
